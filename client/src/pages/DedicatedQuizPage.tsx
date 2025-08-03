@@ -242,15 +242,31 @@ export function DedicatedQuizPage() {
 
   const handleSubmit = async () => {
     try {
-      // For now, just log the data and redirect
-      // TODO: Add Airtable integration when backend is ready
-      console.log('Quiz answers:', answers)
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // Redirect to thank you page
-      setLocation('/thank-you')
+      const response = await fetch('http://localhost:3001/api/quiz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${answers.contactInfo.firstName} ${answers.contactInfo.lastName}`.trim(),
+          email: answers.contactInfo.email,
+          phone: answers.contactInfo.phone,
+          location: answers.location,
+          careType: answers.careType,
+          budget: answers.budget,
+          timeline: answers.urgency,
+          urgency: answers.urgency,
+          source: 'quiz',
+          questions: JSON.stringify(answers, null, 2)
+        }),
+      })
+
+      if (response.ok) {
+        // Redirect to thank you page
+        setLocation('/thank-you')
+      } else {
+        throw new Error('Failed to submit quiz')
+      }
     } catch (error) {
       console.error('Quiz submission error:', error)
       alert('There was an error submitting your quiz. Please try again.')

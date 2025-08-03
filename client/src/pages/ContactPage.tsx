@@ -27,15 +27,23 @@ export function ContactPage() {
     setIsSubmitting(true)
     
     try {
-      // For now, just log the data and redirect
-      // TODO: Add Airtable integration when backend is ready
-      console.log('Contact form data:', formData)
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // Redirect to thank you page
-      setLocation('/thank-you')
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          source: 'contact-page'
+        }),
+      })
+
+      if (response.ok) {
+        // Redirect to thank you page
+        setLocation('/thank-you')
+      } else {
+        throw new Error('Failed to submit form')
+      }
     } catch (error) {
       console.error('Contact form submission error:', error)
       alert('There was an error submitting your form. Please try again.')
