@@ -50,13 +50,13 @@ export function Header() {
 
       {/* Main header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-32 sm:h-36 lg:h-40">
+        <div className="flex items-center justify-between h-20 sm:h-24 lg:h-28">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0 mr-16">
+          <Link href="/" className="flex items-center flex-shrink-0 mr-12">
             <img 
               src="/logo.png?v=4" 
               alt="Senior Living Placement Logo" 
-              className="h-24 sm:h-28 md:h-32 lg:h-36 w-auto object-contain" 
+              className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain" 
             />
           </Link>
 
@@ -88,13 +88,13 @@ export function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:block flex-shrink-0 ml-12">
+          <div className="hidden lg:block flex-shrink-0 ml-8">
             <Link 
               href="/quiz-intro"
-              className="group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white h-14 py-4 px-8 text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white h-12 py-3 px-6 text-base shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Start Your Search
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </Link>
