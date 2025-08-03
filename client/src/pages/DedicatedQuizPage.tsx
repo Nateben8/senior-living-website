@@ -242,7 +242,7 @@ export function DedicatedQuizPage() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/quiz', {
+      const response = await fetch('/api/quiz', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
