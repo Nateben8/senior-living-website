@@ -5,6 +5,17 @@ const base = new Airtable({
 }).base(process.env.AIRTABLE_BASE_ID);
 
 export default async function handler(req, res) {
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -43,7 +54,7 @@ export default async function handler(req, res) {
       'Location': location || '',
       'Status': 'New',
       'Created At': new Date().toISOString(),
-      'IP Address': req.headers['x-forwarded-for'] || req.connection.remoteAddress || '',
+      'IP Address': req.headers['x-forwarded-for'] || req.connection?.remoteAddress || '',
       'User Agent': req.headers['user-agent'] || '',
       'Questions and Answers': formattedQuestions,
     };
