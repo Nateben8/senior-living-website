@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'wouter'
-import { airtableClient } from '@/services/airtableClient'
 
 // California cities and zip codes for autocomplete
 const CALIFORNIA_LOCATIONS = [
@@ -243,19 +242,12 @@ export function DedicatedQuizPage() {
 
   const handleSubmit = async () => {
     try {
-      // Submit to Airtable directly
-      await airtableClient.submitQuiz({
-        name: `${answers.contactInfo.firstName} ${answers.contactInfo.lastName}`.trim(),
-        email: answers.contactInfo.email,
-        phone: answers.contactInfo.phone,
-        location: answers.location,
-        careType: answers.careType,
-        budget: answers.budget,
-        timeline: answers.urgency, // Using urgency as timeline
-        urgency: answers.urgency,
-        source: 'quiz',
-        questions: JSON.stringify(answers, null, 2) // Store all answers as questions
-      })
+      // For now, just log the data and redirect
+      // TODO: Add Airtable integration when backend is ready
+      console.log('Quiz answers:', answers)
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000))
       
       // Redirect to thank you page
       setLocation('/thank-you')
