@@ -19,19 +19,21 @@ app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, phone, careType, urgency, message, source } = req.body;
     
+    // Only include fields that don't have select restrictions
+    const fields = {
+      'Name': name,
+      'Email': email,
+      'Phone': phone || '',
+      'Message': message,
+      'Status': 'New',
+      'Created At': new Date().toISOString(),
+      'IP Address': req.ip || req.connection.remoteAddress || '',
+      'User Agent': req.get('User-Agent') || '',
+    };
+
     const record = await base('Contact Submissions').create([
       {
-        fields: {
-          'Name': name,
-          'Email': email,
-          'Phone': phone || '',
-          'Care Type': careType || '',
-          'Urgency': urgency || '',
-          'Message': message,
-          'Source': source || 'contact-page',
-          'Status': 'New',
-          'Created At': new Date().toISOString(),
-        }
+        fields: fields
       }
     ]);
     
@@ -53,17 +55,45 @@ app.post('/api/quiz', async (req, res) => {
     
     console.log('Received quiz submission:', { name, email, location, careType, budget, timeline, urgency });
     
+    // Format the questions and answers nicely
+    let formattedQuestions = '';
+    if (questions) {
+      try {
+        const parsedQuestions = JSON.parse(questions);
+        formattedQuestions = Object.entries(parsedQuestions)
+          .filter(([key, value]) => value && key !== 'contactInfo')
+          .map(([key, value]) => {
+            const formattedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+            if (Array.isArray(value)) {
+              return `${formattedKey}: ${value.join(', ')}`;
+            } else if (typeof value === 'object') {
+              return `${formattedKey}: ${JSON.stringify(value)}`;
+            } else {
+              return `${formattedKey}: ${value}`;
+            }
+          })
+          .join('\n\n');
+      } catch (error) {
+        formattedQuestions = questions;
+      }
+    }
+
+    // Only include fields that don't have select restrictions
+    const fields = {
+      'Name': name,
+      'Email': email,
+      'Phone': phone || '',
+      'Location': location || '',
+      'Status': 'New',
+      'Created At': new Date().toISOString(),
+      'IP Address': req.ip || req.connection.remoteAddress || '',
+      'User Agent': req.get('User-Agent') || '',
+      'Questions and Answers': formattedQuestions,
+    };
+
     const record = await base('Quiz Submissions').create([
       {
-        fields: {
-          'Name': name,
-          'Email': email,
-          'Phone': phone || '',
-          'Location': location || '',
-          'Status': 'New',
-          'Created At': new Date().toISOString(),
-          'Questions and Answers': questions || '',
-        }
+        fields: fields
       }
     ]);
     
