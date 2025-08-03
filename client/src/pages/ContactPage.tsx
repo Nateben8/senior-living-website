@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useLocation } from 'wouter'
+import { airtableClient } from '@/services/airtableClient'
 
 export function ContactPage() {
   const [, setLocation] = useLocation()
@@ -27,12 +28,16 @@ export function ContactPage() {
     setIsSubmitting(true)
     
     try {
-      // For now, just redirect to thank you page
-      // TODO: Add backend integration when server is ready
-      console.log('Contact form data:', formData)
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Submit to Airtable directly
+      await airtableClient.submitContact({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        careType: formData.careType,
+        urgency: formData.urgency,
+        message: formData.message,
+        source: 'contact-page'
+      })
       
       // Redirect to thank you page
       setLocation('/thank-you')
