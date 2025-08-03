@@ -50,13 +50,13 @@ export function Header() {
 
       {/* Main header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 sm:h-24 lg:h-28">
+        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0 mr-12">
+          <Link href="/" className="flex items-center flex-shrink-0 mr-8">
             <img 
               src="/logo.png?v=4" 
               alt="Senior Living Placement Logo" 
-              className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain" 
+              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain" 
             />
           </Link>
 
