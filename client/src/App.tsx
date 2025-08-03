@@ -22,6 +22,7 @@ import { QuizIntroPage } from '@/pages/QuizIntroPage'
 import { DedicatedQuizPage } from '@/pages/DedicatedQuizPage'
 import { FAQPage } from '@/pages/FAQPage'
 import { AdminDashboard } from '@/pages/AdminDashboard'
+import ThankYouPage from '@/pages/ThankYouPage'
 
 // Custom hook for scroll to top on route change
 function useScrollToTop() {
@@ -217,6 +218,16 @@ function App() {
           </main>
           <Footer />
           <FloatingContactButton />
+          <Toaster />
+        </Route>
+        
+        {/* Thank You Page */}
+        <Route path="/thank-you">
+          <Header />
+          <main>
+            <ThankYouPage />
+          </main>
+          <Footer />
           <Toaster />
         </Route>
         

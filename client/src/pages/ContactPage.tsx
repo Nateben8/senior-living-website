@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useLocation } from 'wouter'
 
 export function ContactPage() {
+  const [, setLocation] = useLocation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,19 +39,8 @@ export function ContactPage() {
       })
 
       if (response.ok) {
-        setIsSubmitted(true)
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setIsSubmitted(false)
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            careType: '',
-            urgency: '',
-            message: ''
-          })
-        }, 3000)
+        // Redirect to thank you page
+        setLocation('/thank-you')
       } else {
         throw new Error('Failed to submit form')
       }
