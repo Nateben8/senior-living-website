@@ -12,7 +12,7 @@ export function Footer() {
               <img 
                 src="/logo.png?v=4" 
                 alt="Senior Living Placement Logo" 
-                className="h-12 w-auto object-contain mb-4" 
+                className="h-16 w-auto object-contain mb-4" 
               />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
