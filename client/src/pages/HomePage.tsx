@@ -155,7 +155,7 @@ export function HomePage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-600/20 rounded-3xl blur-3xl"></div>
                 <img 
-                  src="/senior-couple.jpg" 
+                  src="/assisted-living-facility-new.jpg" 
                   alt="Senior couple walking together holding hands in a peaceful park setting" 
                   className="relative rounded-3xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-500"
                   loading="eager"
