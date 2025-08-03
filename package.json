@@ -13,7 +13,10 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "server:dev": "tsx server/index.ts",
-    "server:start": "node dist/server/index.js"
+    "server:start": "node dist/server/index.js",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "npm run build && netlify deploy --prod --dir=dist",
+    "deploy:railway": "railway up"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
