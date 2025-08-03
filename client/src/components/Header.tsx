@@ -49,10 +49,10 @@ export function Header() {
       </div>
 
       {/* Main header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0 mr-8">
+          <Link href="/" className="flex items-center flex-shrink-0 mr-6">
             <img 
               src="/logo.png?v=4" 
               alt="Senior Living Placement Logo" 
@@ -61,7 +61,7 @@ export function Header() {
           </Link>
 
           {/* Primary Care Types Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6">
             <Link href="/care-types/assisted-living">
               <span className="font-semibold text-base transition-all duration-300 whitespace-nowrap hover:text-primary text-gray-800 hover:border-b-2 hover:border-primary/50 pb-1 focus:outline-none focus:ring-0 focus:ring-offset-0">
                 Assisted Living
@@ -88,7 +88,7 @@ export function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:block flex-shrink-0 ml-8">
+          <div className="hidden lg:block flex-shrink-0 ml-4">
             <Link 
               href="/quiz-intro"
               className="group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white h-12 py-3 px-6 text-base shadow-lg hover:shadow-xl transform hover:scale-105"
