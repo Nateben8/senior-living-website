@@ -48,6 +48,8 @@ app.post('/api/quiz', async (req, res) => {
   try {
     const { name, email, phone, location, careType, budget, timeline, urgency, source, questions } = req.body;
     
+    console.log('Received quiz submission:', { name, email, location, careType, budget, timeline, urgency });
+    
     const record = await base('Quiz Submissions').create([
       {
         fields: {
@@ -55,11 +57,6 @@ app.post('/api/quiz', async (req, res) => {
           'Email': email,
           'Phone': phone || '',
           'Location': location || '',
-          'Care Type': careType || '',
-          'Budget': budget || '',
-          'Timeline': timeline || '',
-          'Urgency': urgency || '',
-          'Source': source || 'quiz',
           'Status': 'New',
           'Created At': new Date().toISOString(),
           'Questions and Answers': questions || '',
@@ -70,8 +67,9 @@ app.post('/api/quiz', async (req, res) => {
     console.log('Quiz submitted to Airtable:', record[0].id);
     res.status(201).json({ success: true, message: 'Quiz submitted successfully' });
   } catch (error) {
-    console.error('Quiz submission error:', error);
-    res.status(500).json({ success: false, message: 'Failed to submit quiz' });
+    console.error('Quiz submission error:', error.message);
+    console.error('Full error:', error);
+    res.status(500).json({ success: false, message: 'Failed to submit quiz', error: error.message });
   }
 });
 
