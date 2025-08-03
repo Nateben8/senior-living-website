@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'wouter'
 
 // California cities and zip codes for autocomplete
 const CALIFORNIA_LOCATIONS = [
@@ -187,6 +188,7 @@ const CALIFORNIA_LOCATIONS = [
 ]
 
 export function DedicatedQuizPage() {
+  const [, setLocation] = useLocation()
   const [step, setStep] = useState(1)
   const [answers, setAnswers] = useState({
     careType: '',
@@ -238,15 +240,21 @@ export function DedicatedQuizPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const handleSubmit = () => {
-    // Here you would typically send the data to your backend
-    console.log('Quiz answers:', answers)
-    
-    // For now, we'll show a success message
-    alert('Thank you! Your assessment has been submitted. A senior living advisor will contact you within 24 hours to provide personalized recommendations.')
-    
-    // You could redirect to a thank you page or back to the main site
-    // window.location.href = '/thank-you'
+  const handleSubmit = async () => {
+    try {
+      // For now, just redirect to thank you page
+      // TODO: Add backend integration when server is ready
+      console.log('Quiz answers:', answers)
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      // Redirect to thank you page
+      setLocation('/thank-you')
+    } catch (error) {
+      console.error('Quiz submission error:', error)
+      alert('There was an error submitting your quiz. Please try again.')
+    }
   }
 
   // Location autocomplete handlers

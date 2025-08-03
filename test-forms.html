@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Test</title>
+</head>
+<body>
+    <h1>Form Test Page</h1>
+    
+    <h2>Contact Form Test</h2>
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="tel" name="phone" placeholder="Phone"><br>
+        <select name="careType">
+            <option value="">Select Care Type</option>
+            <option value="assisted-living">Assisted Living</option>
+            <option value="memory-care">Memory Care</option>
+            <option value="independent-living">Independent Living</option>
+            <option value="nursing-home">Nursing Home</option>
+        </select><br>
+        <select name="urgency">
+            <option value="">Select Urgency</option>
+            <option value="immediate">Immediate</option>
+            <option value="soon">Soon</option>
+            <option value="planning">Planning</option>
+        </select><br>
+        <textarea name="message" placeholder="Message" required></textarea><br>
+        <button type="submit">Submit Contact Form</button>
+    </form>
+
+    <h2>Quiz Form Test</h2>
+    <form id="quizForm">
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="tel" name="phone" placeholder="Phone"><br>
+        <input type="text" name="location" placeholder="Location" required><br>
+        <select name="careType">
+            <option value="">Select Care Type</option>
+            <option value="assisted-living">Assisted Living</option>
+            <option value="memory-care">Memory Care</option>
+            <option value="independent-living">Independent Living</option>
+            <option value="nursing-home">Nursing Home</option>
+        </select><br>
+        <select name="budget">
+            <option value="">Select Budget</option>
+            <option value="under-2000">Under $2,000</option>
+            <option value="2000-3000">$2,000-$3,000</option>
+            <option value="3000-4000">$3,000-$4,000</option>
+            <option value="4000-5000">$4,000-$5,000</option>
+            <option value="over-5000">Over $5,000</option>
+        </select><br>
+        <select name="timeline">
+            <option value="">Select Timeline</option>
+            <option value="immediate">Immediate</option>
+            <option value="within-30-days">Within 30 days</option>
+            <option value="within-60-days">Within 60 days</option>
+            <option value="planning">Just planning</option>
+        </select><br>
+        <select name="urgency">
+            <option value="">Select Urgency</option>
+            <option value="immediate">Immediate</option>
+            <option value="soon">Soon</option>
+            <option value="planning">Planning</option>
+        </select><br>
+        <button type="submit">Submit Quiz Form</button>
+    </form>
+
+    <script>
+        // Test Contact Form
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        ...data,
+                        source: 'test-contact'
+                    }),
+                });
+                
+                if (response.ok) {
+                    alert('Contact form submitted successfully! Redirecting to thank you page...');
+                    window.location.href = '/thank-you';
+                } else {
+                    throw new Error('Failed to submit contact form');
+                }
+            } catch (error) {
+                console.error('Contact form error:', error);
+                alert('Error submitting contact form: ' + error.message);
+            }
+        });
+
+        // Test Quiz Form
+        document.getElementById('quizForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                const response = await fetch('/api/quiz', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        ...data,
+                        source: 'test-quiz'
+                    }),
+                });
+                
+                if (response.ok) {
+                    alert('Quiz form submitted successfully! Redirecting to thank you page...');
+                    window.location.href = '/thank-you';
+                } else {
+                    throw new Error('Failed to submit quiz form');
+                }
+            } catch (error) {
+                console.error('Quiz form error:', error);
+                alert('Error submitting quiz form: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html> 
