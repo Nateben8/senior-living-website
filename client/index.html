@@ -103,32 +103,27 @@
       "Nursing Homes"
     ],
     "priceRange": "Free Service",
-    "openingHours": "Mo-Su 09:00-18:00",
+    "openingHours": "Mo-Su 00:00-23:59",
     "sameAs": [
-      "https://seniorlivingplacement.org"
-    ],
-    "logo": "https://seniorlivingplacement.org/assets/SLP%20Logo%20(1)_1752736909770-A9F9-KDF.png",
-    "image": "https://seniorlivingplacement.org/assets/SLP%20Website%20Image%202_1752736839584-DKd3ZmYq.webp",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "150"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Sarah M."
-        },
-        "reviewBody": "Senior Living Placement helped us find the perfect assisted living community for my mother. The advisor was incredibly knowledgeable and patient throughout the entire process."
-      }
+      "https://www.facebook.com/seniorlivingplacement",
+      "https://www.linkedin.com/company/senior-living-placement"
     ]
   }
+  </script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration)
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError)
+          })
+      })
+    }
   </script>
   
   <!-- Organization Schema -->
