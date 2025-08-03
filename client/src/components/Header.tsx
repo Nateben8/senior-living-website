@@ -54,7 +54,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0 mr-12">
             <img 
-              src="/logo.png" 
+              src="/logo.png?v=2" 
               alt="Senior Living Placement Logo" 
               className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto max-w-none transition-transform duration-300 hover:scale-105" 
               style={{ minWidth: '100px' }}

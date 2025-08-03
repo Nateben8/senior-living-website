@@ -10,7 +10,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
               <img 
-                src="/logo.png" 
+                src="/logo.png?v=2" 
                 alt="Senior Living Placement Logo" 
                 className="h-8 sm:h-10"
               />
