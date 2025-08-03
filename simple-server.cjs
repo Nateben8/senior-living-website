@@ -45,6 +45,9 @@ app.post('/api/contact', async (req, res) => {
 
 // Quiz form submission
 app.post('/api/quiz', async (req, res) => {
+  console.log('Received quiz request');
+  console.log('Request body:', req.body);
+  
   try {
     const { name, email, phone, location, careType, budget, timeline, urgency, source, questions } = req.body;
     
@@ -76,4 +79,13 @@ app.post('/api/quiz', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Simple server running on http://localhost:${PORT}`);
   console.log('Ready to handle form submissions to Airtable!');
+});
+
+// Add error handling for uncaught exceptions
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught Exception:', error);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
 }); 
