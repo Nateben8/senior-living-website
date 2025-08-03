@@ -44,7 +44,7 @@ export function AboutPage() {
             </div>
             <div className="mt-12 lg:mt-0">
               <img 
-                src="https://seniorlivingplacement.org/assets/SLP%20Website%20image%201_1752736922678-CmeBlMet.webp" 
+                src="/senior-family.jpg" 
                 alt="Happy multi-generational family with grandparents and grandchild enjoying time together" 
                 className="rounded-3xl shadow-2xl w-full h-auto"
               />
