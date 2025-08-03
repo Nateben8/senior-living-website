@@ -1,0 +1,36 @@
+run = "python3 -m http.server 8000"
+entrypoint = "index.html"
+
+[nix]
+channel = "stable-22_11"
+
+[env]
+PATH = "/home/runner/.local/bin:/home/runner/.cargo/bin:/home/runner/.cabal/bin:/home/runner/.ghcup/bin:$PATH"
+
+[packager]
+language = "python3"
+
+[packager.features]
+packageSearch = true
+guessImports = true
+
+[languages]
+[languages.python3]
+pattern = "**/*.py"
+syntax = "python"
+languageServer = { start = "pylsp" }
+
+[languages.javascript]
+pattern = "**/*.{js,jsx,ts,tsx}"
+syntax = "javascript"
+languageServer = { start = "typescript-language-server --stdio" }
+
+[languages.html]
+pattern = "**/*.html"
+syntax = "html"
+languageServer = { start = "vscode-html-language-server --stdio" }
+
+[languages.css]
+pattern = "**/*.css"
+syntax = "css"
+languageServer = { start = "vscode-css-language-server --stdio" } 
