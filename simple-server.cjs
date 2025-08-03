@@ -19,12 +19,18 @@ app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, phone, careType, urgency, message, source } = req.body;
     
-    // Only include fields that don't have select restrictions
+    // Include care type and urgency info in the message field
+    let enhancedMessage = message;
+    if (careType || urgency) {
+      enhancedMessage = `Care Type: ${careType || 'Not specified'}\nUrgency: ${urgency || 'Not specified'}\nSource: ${source || 'contact-page'}\n\n${message}`;
+    }
+
+    // Only include fields that don't have select restrictions to avoid Airtable errors
     const fields = {
       'Name': name,
       'Email': email,
       'Phone': phone || '',
-      'Message': message,
+      'Message': enhancedMessage,
       'Status': 'New',
       'Created At': new Date().toISOString(),
       'IP Address': req.ip || req.connection.remoteAddress || '',
