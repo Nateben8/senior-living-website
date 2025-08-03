@@ -5,18 +5,6 @@ import { CheckCircle, Phone, Mail, Clock, ArrowRight, Heart } from 'lucide-react
 const ThankYouPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <img src="/logo.png" alt="Senior Living Placement" className="h-8 w-auto" />
-              <span className="text-xl font-semibold text-gray-900">Senior Living Placement</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center">
