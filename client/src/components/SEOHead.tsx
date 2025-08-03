@@ -91,7 +91,7 @@ export function SEOHead({
             "name": "Senior Living Placement",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://seniorlivingplacement.org/logo.png"
+              "url": "https://seniorlivingplacement.org/logo.svg"
             }
           },
           "datePublished": new Date().toISOString(),
