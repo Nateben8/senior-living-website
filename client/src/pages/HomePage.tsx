@@ -105,9 +105,9 @@ export function HomePage() {
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-            <div className={`lg:pr-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6">
+          <div className="lg:flex lg:items-center lg:gap-12">
+            <div className={`lg:flex-1 lg:pr-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mb-6">
                 Find the Perfect <span className="text-primary bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Senior Living</span> Community
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed mb-8">
@@ -151,13 +151,13 @@ export function HomePage() {
               </div>
             </div>
             
-            <div className={`mt-8 sm:mt-10 lg:mt-0 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="relative">
+            <div className={`lg:flex-1 mt-8 sm:mt-10 lg:mt-0 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <div className="relative flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-600/20 rounded-3xl blur-3xl"></div>
                 <img 
                   src="/assisted-living-facility-new.jpg" 
                   alt="Senior couple walking together holding hands in a peaceful park setting" 
-                  className="relative rounded-3xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-500"
+                  className="relative rounded-3xl shadow-2xl w-full h-auto max-w-lg lg:max-w-full transform hover:scale-105 transition-transform duration-500"
                   loading="eager"
                 />
               </div>

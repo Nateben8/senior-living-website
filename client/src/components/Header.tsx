@@ -52,36 +52,36 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0 -ml-4">
+          <Link href="/" className="flex items-center flex-shrink-0">
             <img 
               src="/logo.png" 
               alt="Senior Living Placement Logo" 
-              className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain" 
+              className="h-7 sm:h-8 md:h-10 lg:h-11 w-auto object-contain" 
             />
           </Link>
 
           {/* Primary Care Types Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-8 ml-auto mr-8">
             <Link href="/care-types/assisted-living">
-              <span className="font-semibold text-base transition-all duration-300 whitespace-nowrap hover:text-primary text-gray-800 hover:border-b-2 hover:border-primary/50 pb-1 focus:outline-none focus:ring-0 focus:ring-offset-0">
+              <span className="font-semibold text-sm xl:text-base transition-all duration-300 whitespace-nowrap hover:text-primary text-gray-800 hover:border-b-2 hover:border-primary/50 pb-1 focus:outline-none focus:ring-0 focus:ring-offset-0">
                 Assisted Living
               </span>
             </Link>
             
             <Link href="/care-types/memory-care">
-              <span className="font-semibold text-base transition-all duration-300 whitespace-nowrap hover:text-primary text-gray-800 hover:border-b-2 hover:border-primary/50 pb-1 focus:outline-none focus:ring-0 focus:ring-offset-0">
+              <span className="font-semibold text-sm xl:text-base transition-all duration-300 whitespace-nowrap hover:text-primary text-gray-800 hover:border-b-2 hover:border-primary/50 pb-1 focus:outline-none focus:ring-0 focus:ring-offset-0">
                 Memory Care
               </span>
             </Link>
             
             <Link href="/care-types/independent-living">
-              <span className="font-semibold text-base transition-all duration-300 whitespace-nowrap hover:text-primary text-gray-800 hover:border-b-2 hover:border-primary/50 pb-1 focus:outline-none focus:ring-0 focus:ring-offset-0">
+              <span className="font-semibold text-sm xl:text-base transition-all duration-300 whitespace-nowrap hover:text-primary text-gray-800 hover:border-b-2 hover:border-primary/50 pb-1 focus:outline-none focus:ring-0 focus:ring-offset-0">
                 Independent Living
               </span>
             </Link>
             
             <Link href="/care-types/nursing-homes">
-              <span className="font-semibold text-base transition-all duration-300 whitespace-nowrap hover:text-primary text-gray-800 hover:border-b-2 hover:border-primary/50 pb-1 focus:outline-none focus:ring-0 focus:ring-offset-0">
+              <span className="font-semibold text-sm xl:text-base transition-all duration-300 whitespace-nowrap hover:text-primary text-gray-800 hover:border-b-2 hover:border-primary/50 pb-1 focus:outline-none focus:ring-0 focus:ring-offset-0">
                 Nursing Homes
               </span>
             </Link>
@@ -202,7 +202,7 @@ export function Header() {
 
       {/* Mobile menu */}
       <div className={`lg:hidden transition-all duration-300 ease-in-out ${
-        isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        isMobileMenuOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
       } overflow-hidden`}>
         <div className="bg-white border-t border-gray-200 px-4 py-6 space-y-4">
           {/* Primary Care Types */}
