@@ -242,6 +242,18 @@ export function DedicatedQuizPage() {
 
   const handleSubmit = async () => {
     try {
+      console.log('Submitting quiz with data:', {
+        name: `${answers.contactInfo.firstName} ${answers.contactInfo.lastName}`.trim(),
+        email: answers.contactInfo.email,
+        phone: answers.contactInfo.phone,
+        location: answers.location,
+        careType: answers.careType,
+        budget: answers.budget,
+        timeline: answers.urgency,
+        urgency: answers.urgency,
+        source: 'quiz'
+      });
+
       const response = await fetch('/api/quiz', {
         method: 'POST',
         headers: {
@@ -261,15 +273,33 @@ export function DedicatedQuizPage() {
         }),
       })
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+
       if (response.ok) {
+        console.log('Quiz submitted successfully!');
         // Redirect to thank you page
         setLocation('/thank-you')
       } else {
-        throw new Error('Failed to submit quiz')
+        const errorText = await response.text();
+        console.error('Server response error:', errorText);
+        throw new Error(`Server responded with ${response.status}: ${errorText}`)
       }
     } catch (error) {
       console.error('Quiz submission error:', error)
-      alert('There was an error submitting your quiz. Please try again.')
+      
+      // More specific error message for debugging
+      if (error.message.includes('404')) {
+        if (confirm('The quiz submission service is not available. Would you like to contact us directly instead?')) {
+          setLocation('/contact');
+        }
+      } else if (error.message.includes('500')) {
+        alert('There was a server error submitting your quiz. Please try again or contact us directly at (818) 422-5232.')
+      } else {
+        if (confirm('There was an error submitting your quiz. Would you like to contact us directly instead?')) {
+          setLocation('/contact');
+        }
+      }
     }
   }
 
