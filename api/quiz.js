@@ -56,18 +56,17 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    // Use a simplified field structure to avoid Airtable schema issues
+    // Use the original field names that work with your Airtable
     const fields = {
       'Name': name,
       'Email': email,
       'Phone': phone || '',
       'Location': location || '',
-      'Care Type': careType || '',
-      'Budget': budget || '',
-      'Timeline': timeline || '',
-      'Source': source || 'quiz',
-      'Questions': formattedQuestions,
-      'Submitted At': new Date().toISOString()
+      'Status': 'New',
+      'Created At': new Date().toISOString(),
+      'Questions and Answers': formattedQuestions,
+      'IP Address': req.headers['x-forwarded-for'] || req.connection?.remoteAddress || '',
+      'User Agent': req.headers['user-agent'] || ''
     };
     
     console.log('Attempting to create record with fields:', JSON.stringify(fields, null, 2));
@@ -92,7 +91,7 @@ module.exports = async function handler(req, res) {
     let errorMessage = 'Failed to submit quiz';
     if (error.message.includes('INVALID_REQUEST_MISSING_FIELDS')) {
       errorMessage = 'Missing required fields in submission';
-    } else if (error.message.includes('INVALID_REQUEST_UNKNOWN_FIELD')) {
+    } else if (error.message.includes('INVALID_REQUEST_UNKNOWN_FIELD') || error.message.includes('Unknown field name')) {
       errorMessage = 'Database field mismatch - please contact support';
     } else if (error.message.includes('NOT_FOUND')) {
       errorMessage = 'Database table not found - please contact support';
