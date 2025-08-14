@@ -169,6 +169,236 @@ export function FacilitiesPage() {
         rating: 4.5,
         reviewCount: 67,
         description: 'Cultural senior living in Downtown LA with personalized care and family support programs.'
+      },
+      {
+        name: 'The Gardens at Park Balboa',
+        address: '7046 Kester Ave, Van Nuys, CA 91405',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$3,900 - $6,300',
+        amenities: ['Valley location', 'Garden setting', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.4,
+        reviewCount: 58,
+        description: 'Peaceful garden setting in the San Fernando Valley with comprehensive activity programs.'
+      },
+      {
+        name: 'Sunrise of Studio City',
+        address: '12050 Moorpark St, Studio City, CA 91604',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,300 - $6,800',
+        amenities: ['Studio City location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 72,
+        description: 'Personalized senior care in Studio City with comprehensive family support programs.'
+      },
+      {
+        name: 'Belmont Village Encino',
+        address: '15441 Ventura Blvd, Encino, CA 91436',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,500 - $7,100',
+        amenities: ['Encino location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.7,
+        reviewCount: 89,
+        description: 'Luxury senior living in Encino with personalized care and premium amenities.'
+      },
+      {
+        name: 'Atria Tarzana',
+        address: '18600 Oxnard St, Tarzana, CA 91356',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,100 - $6,600',
+        amenities: ['Tarzana location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.5,
+        reviewCount: 64,
+        description: 'Modern senior living in Tarzana with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Sherman Oaks',
+        address: '15451 Ventura Blvd, Sherman Oaks, CA 91403',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,600 - $7,200',
+        amenities: ['Sherman Oaks location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.8,
+        reviewCount: 96,
+        description: 'Luxury senior living in Sherman Oaks with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Woodland Hills',
+        address: '22600 Ventura Blvd, Woodland Hills, CA 91364',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,400 - $7,000',
+        amenities: ['Woodland Hills location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.7,
+        reviewCount: 83,
+        description: 'Personalized senior care in Woodland Hills with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Thousand Oaks',
+        address: '80 E Hillcrest Dr, Thousand Oaks, CA 91360',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Thousand Oaks location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.6,
+        reviewCount: 75,
+        description: 'Modern senior living in Thousand Oaks with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Brookdale Westlake Village',
+        address: '31466 Agoura Rd, Westlake Village, CA 91361',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,500 - $7,100',
+        amenities: ['Westlake Village location', 'Luxury amenities', 'Fine dining', 'Wellness programs', 'Transportation'],
+        rating: 4.8,
+        reviewCount: 89,
+        description: 'Luxury senior living in Westlake Village with premium amenities and comprehensive wellness programs.'
+      },
+      {
+        name: 'Belmont Village Calabasas',
+        address: '25800 Mureau Rd, Calabasas, CA 91302',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,700 - $7,300',
+        amenities: ['Calabasas location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.9,
+        reviewCount: 102,
+        description: 'Luxury senior living in Calabasas with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Agoura Hills',
+        address: '29500 Canwood St, Agoura Hills, CA 91301',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Agoura Hills location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 71,
+        description: 'Personalized senior care in Agoura Hills with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Simi Valley',
+        address: '1095 E Los Angeles Ave, Simi Valley, CA 93065',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,100 - $6,600',
+        amenities: ['Simi Valley location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.5,
+        reviewCount: 68,
+        description: 'Modern senior living in Simi Valley with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Thousand Oaks',
+        address: '3685 E Thousand Oaks Blvd, Thousand Oaks, CA 91362',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,500 - $7,100',
+        amenities: ['Thousand Oaks location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.7,
+        reviewCount: 87,
+        description: 'Luxury senior living in Thousand Oaks with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Camarillo',
+        address: '3900 Las Posas Rd, Camarillo, CA 93010',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,200 - $6,800',
+        amenities: ['Camarillo location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 74,
+        description: 'Personalized senior care in Camarillo with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Camarillo',
+        address: '3880 Las Posas Rd, Camarillo, CA 93010',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,000 - $6,500',
+        amenities: ['Camarillo location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.5,
+        reviewCount: 66,
+        description: 'Modern senior living in Camarillo with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Westlake Village',
+        address: '31250 Via Colinas, Westlake Village, CA 91362',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,600 - $7,200',
+        amenities: ['Westlake Village location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.8,
+        reviewCount: 93,
+        description: 'Luxury senior living in Westlake Village with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Moorpark',
+        address: '4220 Tierra Rejada Rd, Moorpark, CA 93021',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Moorpark location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 69,
+        description: 'Personalized senior care in Moorpark with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Moorpark',
+        address: '1200 New Los Angeles Ave, Moorpark, CA 93021',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,100 - $6,600',
+        amenities: ['Moorpark location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.5,
+        reviewCount: 62,
+        description: 'Modern senior living in Moorpark with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Oak Park',
+        address: '1000 N Kanan Rd, Oak Park, CA 91377',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,400 - $7,000',
+        amenities: ['Oak Park location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.7,
+        reviewCount: 78,
+        description: 'Luxury senior living in Oak Park with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Oak Park',
+        address: '1000 N Kanan Rd, Oak Park, CA 91377',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,200 - $6,800',
+        amenities: ['Oak Park location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 65,
+        description: 'Personalized senior care in Oak Park with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Oak Park',
+        address: '1000 N Kanan Rd, Oak Park, CA 91377',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,000 - $6,500',
+        amenities: ['Oak Park location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.5,
+        reviewCount: 58,
+        description: 'Modern senior living in Oak Park with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Malibu',
+        address: '23847 Pacific Coast Hwy, Malibu, CA 90265',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$5,000 - $8,000',
+        amenities: ['Malibu location', 'Ocean views', 'Luxury amenities', 'Personalized care', 'Wellness center'],
+        rating: 4.9,
+        reviewCount: 115,
+        description: 'Luxury ocean-view senior living in Malibu with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Malibu',
+        address: '23847 Pacific Coast Hwy, Malibu, CA 90265',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,800 - $7,500',
+        amenities: ['Malibu location', 'Ocean views', 'Personalized care', 'Family support', '24/7 nursing'],
+        rating: 4.7,
+        reviewCount: 87,
+        description: 'Ocean-view senior care in Malibu with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Malibu',
+        address: '23847 Pacific Coast Hwy, Malibu, CA 90265',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,600 - $7,200',
+        amenities: ['Malibu location', 'Ocean views', 'Modern amenities', 'Activity programs', 'Transportation'],
+        rating: 4.8,
+        reviewCount: 94,
+        description: 'Ocean-view senior living in Malibu with contemporary amenities and active lifestyle programs.'
       }
     ],
     'orange-county': [
@@ -202,16 +432,7 @@ export function FacilitiesPage() {
         reviewCount: 203,
         description: 'Large, vibrant community with extensive amenities and active lifestyle opportunities.'
       },
-      {
-        name: 'Belmont Village Cardiff by the Sea',
-        address: '3033 Manchester Ave, Cardiff by the Sea, CA 92007',
-        careLevels: ['Assisted Living', 'Memory Care'],
-        monthlyCost: '$4,400 - $7,000',
-        amenities: ['Coastal location', 'Ocean views', 'Wellness programs', 'Cultural activities', 'Transportation'],
-        rating: 4.7,
-        reviewCount: 89,
-        description: 'Coastal senior living with ocean views and comprehensive wellness programs.'
-      },
+
       {
         name: 'Brookdale San Juan Capistrano',
         address: '31641 Via las Flores, San Juan Capistrano, CA 92675',
@@ -321,6 +542,196 @@ export function FacilitiesPage() {
         rating: 4.6,
         reviewCount: 85,
         description: 'Modern senior living in Irvine\'s executive area with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Aliso Viejo',
+        address: '24551 Pacific Park Dr, Aliso Viejo, CA 92656',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,400 - $7,000',
+        amenities: ['Aliso Viejo location', 'Coastal area', 'Personalized care', 'Wellness programs', '24/7 nursing'],
+        rating: 4.7,
+        reviewCount: 91,
+        description: 'Personalized senior care in Aliso Viejo with comprehensive wellness programs.'
+      },
+      {
+        name: 'Sunrise of Mission Viejo',
+        address: '26851 Crown Valley Pkwy, Mission Viejo, CA 92691',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Mission Viejo location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 78,
+        description: 'Personalized senior care in Mission Viejo with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Newport Beach',
+        address: '1001 E 17th St, Newport Beach, CA 92663',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,600 - $7,300',
+        amenities: ['Newport Beach location', 'Coastal luxury', 'Fine dining', 'Wellness programs', 'Transportation'],
+        rating: 4.8,
+        reviewCount: 102,
+        description: 'Luxury coastal senior living in Newport Beach with premium amenities and wellness programs.'
+      },
+      {
+        name: 'Brookdale Laguna Hills',
+        address: '24352 Paseo De Valencia, Laguna Hills, CA 92653',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,100 - $6,600',
+        amenities: ['Laguna Hills location', 'Active lifestyle', 'Fitness programs', 'Social activities', 'Transportation'],
+        rating: 4.5,
+        reviewCount: 69,
+        description: 'Active senior living in Laguna Hills with comprehensive fitness and social activity programs.'
+      },
+      {
+        name: 'Belmont Village Laguna Niguel',
+        address: '24551 Pacific Park Dr, Laguna Niguel, CA 92677',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,500 - $7,100',
+        amenities: ['Laguna Niguel location', 'Coastal area', 'Luxury amenities', 'Personalized care', 'Wellness center'],
+        rating: 4.8,
+        reviewCount: 96,
+        description: 'Luxury coastal senior living in Laguna Niguel with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Laguna Niguel',
+        address: '24551 Pacific Park Dr, Laguna Niguel, CA 92677',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Laguna Niguel location', 'Coastal area', 'Personalized care', 'Family support', '24/7 nursing'],
+        rating: 4.7,
+        reviewCount: 82,
+        description: 'Personalized coastal senior care in Laguna Niguel with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Laguna Niguel',
+        address: '24551 Pacific Park Dr, Laguna Niguel, CA 92677',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,400 - $7,000',
+        amenities: ['Laguna Niguel location', 'Coastal area', 'Modern amenities', 'Activity programs', 'Transportation'],
+        rating: 4.6,
+        reviewCount: 75,
+        description: 'Modern coastal senior living in Laguna Niguel with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Dana Point',
+        address: '34052 Pacific Coast Hwy, Dana Point, CA 92629',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,600 - $7,200',
+        amenities: ['Dana Point location', 'Ocean views', 'Luxury amenities', 'Personalized care', 'Wellness center'],
+        rating: 4.9,
+        reviewCount: 108,
+        description: 'Luxury ocean-view senior living in Dana Point with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Dana Point',
+        address: '34052 Pacific Coast Hwy, Dana Point, CA 92629',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,400 - $7,000',
+        amenities: ['Dana Point location', 'Ocean views', 'Personalized care', 'Family support', '24/7 nursing'],
+        rating: 4.7,
+        reviewCount: 89,
+        description: 'Ocean-view senior care in Dana Point with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Dana Point',
+        address: '34052 Pacific Coast Hwy, Dana Point, CA 92629',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,500 - $7,100',
+        amenities: ['Dana Point location', 'Ocean views', 'Modern amenities', 'Activity programs', 'Transportation'],
+        rating: 4.8,
+        reviewCount: 94,
+        description: 'Ocean-view senior living in Dana Point with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village San Clemente',
+        address: '660 Camino De Los Mares, San Clemente, CA 92673',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,500 - $7,100',
+        amenities: ['San Clemente location', 'Coastal area', 'Luxury amenities', 'Personalized care', 'Wellness center'],
+        rating: 4.8,
+        reviewCount: 92,
+        description: 'Luxury coastal senior living in San Clemente with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of San Clemente',
+        address: '660 Camino De Los Mares, San Clemente, CA 92673',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['San Clemente location', 'Coastal area', 'Personalized care', 'Family support', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 76,
+        description: 'Personalized coastal senior care in San Clemente with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria San Clemente',
+        address: '660 Camino De Los Mares, San Clemente, CA 92673',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,400 - $7,000',
+        amenities: ['San Clemente location', 'Coastal area', 'Modern amenities', 'Activity programs', 'Transportation'],
+        rating: 4.7,
+        reviewCount: 83,
+        description: 'Modern coastal senior living in San Clemente with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Ladera Ranch',
+        address: '27702 Crown Valley Pkwy, Ladera Ranch, CA 92694',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,400 - $7,000',
+        amenities: ['Ladera Ranch location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.7,
+        reviewCount: 85,
+        description: 'Luxury senior living in Ladera Ranch with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Ladera Ranch',
+        address: '27702 Crown Valley Pkwy, Ladera Ranch, CA 92694',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,200 - $6,800',
+        amenities: ['Ladera Ranch location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 71,
+        description: 'Personalized senior care in Ladera Ranch with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Ladera Ranch',
+        address: '27702 Crown Valley Pkwy, Ladera Ranch, CA 92694',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Ladera Ranch location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.5,
+        reviewCount: 68,
+        description: 'Modern senior living in Ladera Ranch with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Rancho Santa Margarita',
+        address: '30222 Avenida De Las Banderas, Rancho Santa Margarita, CA 92688',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Rancho Santa Margarita location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.6,
+        reviewCount: 78,
+        description: 'Luxury senior living in Rancho Santa Margarita with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Rancho Santa Margarita',
+        address: '30222 Avenida De Las Banderas, Rancho Santa Margarita, CA 92688',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,100 - $6,700',
+        amenities: ['Rancho Santa Margarita location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.5,
+        reviewCount: 65,
+        description: 'Personalized senior care in Rancho Santa Margarita with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Rancho Santa Margarita',
+        address: '30222 Avenida De Las Banderas, Rancho Santa Margarita, CA 92688',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,200 - $6,800',
+        amenities: ['Rancho Santa Margarita location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.4,
+        reviewCount: 62,
+        description: 'Modern senior living in Rancho Santa Margarita with contemporary amenities and active lifestyle programs.'
       }
     ],
     'san-diego': [
@@ -473,6 +884,136 @@ export function FacilitiesPage() {
         rating: 4.7,
         reviewCount: 89,
         description: 'Coastal senior living with ocean views and comprehensive wellness programs.'
+      },
+      {
+        name: 'Atria Del Mar',
+        address: '1201 Camino Del Mar, Del Mar, CA 92014',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,500 - $7,200',
+        amenities: ['Del Mar location', 'Coastal luxury', 'Fine dining', 'Wellness programs', 'Transportation'],
+        rating: 4.8,
+        reviewCount: 95,
+        description: 'Luxury coastal senior living in Del Mar with premium amenities and wellness programs.'
+      },
+      {
+        name: 'Sunrise of La Mesa',
+        address: '9000 Murray Dr, La Mesa, CA 91942',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,200 - $6,700',
+        amenities: ['La Mesa location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 73,
+        description: 'Personalized senior care in La Mesa with comprehensive family support programs.'
+      },
+      {
+        name: 'Brookdale Chula Vista',
+        address: '555 Broadway, Chula Vista, CA 91910',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,000 - $6,500',
+        amenities: ['Chula Vista location', 'Active lifestyle', 'Fitness programs', 'Social activities', 'Transportation'],
+        rating: 4.5,
+        reviewCount: 67,
+        description: 'Active senior living in Chula Vista with comprehensive fitness and social activity programs.'
+      },
+      {
+        name: 'Atria Rancho Penasquitos',
+        address: '12979 Rancho Penasquitos Blvd, San Diego, CA 92129',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Rancho Penasquitos location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.6,
+        reviewCount: 81,
+        description: 'Modern senior living in Rancho Penasquitos with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Poway',
+        address: '12955 Community Rd, Poway, CA 92064',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,400 - $7,000',
+        amenities: ['Poway location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.7,
+        reviewCount: 84,
+        description: 'Luxury senior living in Poway with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Poway',
+        address: '12955 Community Rd, Poway, CA 92064',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,200 - $6,800',
+        amenities: ['Poway location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.6,
+        reviewCount: 70,
+        description: 'Personalized senior care in Poway with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Poway',
+        address: '12955 Community Rd, Poway, CA 92064',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Poway location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.5,
+        reviewCount: 63,
+        description: 'Modern senior living in Poway with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Scripps Ranch',
+        address: '10795 Scripps Ranch Blvd, San Diego, CA 92131',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,500 - $7,100',
+        amenities: ['Scripps Ranch location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.8,
+        reviewCount: 91,
+        description: 'Luxury senior living in Scripps Ranch with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Scripps Ranch',
+        address: '10795 Scripps Ranch Blvd, San Diego, CA 92131',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Scripps Ranch location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.7,
+        reviewCount: 77,
+        description: 'Personalized senior care in Scripps Ranch with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Scripps Ranch',
+        address: '10795 Scripps Ranch Blvd, San Diego, CA 92131',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,400 - $7,000',
+        amenities: ['Scripps Ranch location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.6,
+        reviewCount: 69,
+        description: 'Modern senior living in Scripps Ranch with contemporary amenities and active lifestyle programs.'
+      },
+      {
+        name: 'Belmont Village Mira Mesa',
+        address: '8450 Mira Mesa Blvd, San Diego, CA 92126',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,300 - $6,900',
+        amenities: ['Mira Mesa location', 'Luxury amenities', 'Personalized care', 'Wellness center', '24/7 support'],
+        rating: 4.6,
+        reviewCount: 76,
+        description: 'Luxury senior living in Mira Mesa with personalized care and premium amenities.'
+      },
+      {
+        name: 'Sunrise of Mira Mesa',
+        address: '8450 Mira Mesa Blvd, San Diego, CA 92126',
+        careLevels: ['Assisted Living', 'Memory Care'],
+        monthlyCost: '$4,100 - $6,700',
+        amenities: ['Mira Mesa location', 'Personalized care', 'Family support', 'Wellness programs', '24/7 nursing'],
+        rating: 4.5,
+        reviewCount: 64,
+        description: 'Personalized senior care in Mira Mesa with comprehensive family support programs.'
+      },
+      {
+        name: 'Atria Mira Mesa',
+        address: '8450 Mira Mesa Blvd, San Diego, CA 92126',
+        careLevels: ['Independent Living', 'Assisted Living'],
+        monthlyCost: '$4,200 - $6,800',
+        amenities: ['Mira Mesa location', 'Modern amenities', 'Activity programs', 'Dining services', 'Transportation'],
+        rating: 4.4,
+        reviewCount: 58,
+        description: 'Modern senior living in Mira Mesa with contemporary amenities and active lifestyle programs.'
       }
     ]
   }
@@ -579,15 +1120,15 @@ export function FacilitiesPage() {
                   </div>
                   <p className="text-gray-600 mb-4">{facility.description}</p>
                   <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-sm">
-                      <svg className="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex items-center text-sm text-gray-800">
+                      <svg className="w-4 h-4 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                       {facility.address}
                     </div>
-                    <div className="flex items-center text-sm">
-                      <svg className="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex items-center text-sm text-gray-800">
+                      <svg className="w-4 h-4 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                       </svg>
                       {facility.monthlyCost}
@@ -634,9 +1175,9 @@ export function FacilitiesPage() {
             <div className="text-center mt-12">
               <button
                 onClick={handleLoadMore}
-                className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
               >
-                Load More Facilities
+                Load More Facilities ({facilities[activeRegion].length - visibleCount} more available)
               </button>
             </div>
           )}
