@@ -4,6 +4,9 @@
   "type": "module",
   "license": "MIT",
   "description": "Senior Living Placement website with comprehensive blog and lead generation",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
