@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test - Senior Living Placement</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+        .test-section { margin: 30px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        button { background: #4F46E5; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; margin: 10px 5px; }
+        button:hover { background: #3730A3; }
+        .result { margin-top: 15px; padding: 15px; border-radius: 6px; white-space: pre-wrap; font-family: monospace; }
+        .success { background: #D1FAE5; border: 1px solid #10B981; color: #047857; }
+        .error { background: #FEE2E2; border: 1px solid #EF4444; color: #DC2626; }
+        .info { background: #DBEAFE; border: 1px solid #3B82F6; color: #1D4ED8; }
+        h1 { color: #1F2937; }
+        h2 { color: #4B5563; }
+    </style>
+</head>
+<body>
+    <h1>🧪 API Test Page</h1>
+    <p>Use this page to test if your API endpoints are working correctly on the deployed site.</p>
+
+    <div class="test-section">
+        <h2>Test API Status</h2>
+        <button onclick="testAPIStatus()">Test /api/test</button>
+        <div id="api-status-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Quiz Submission</h2>
+        <button onclick="testQuizSubmission()">Test Quiz API</button>
+        <div id="quiz-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Contact Submission</h2>
+        <button onclick="testContactSubmission()">Test Contact API</button>
+        <div id="contact-result"></div>
+    </div>
+
+    <script>
+        async function testAPIStatus() {
+            const resultDiv = document.getElementById('api-status-result');
+            resultDiv.innerHTML = '<div class="info">Testing API status...</div>';
+
+            try {
+                const response = await fetch('/api/test');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `<div class="success">✅ API Status Test PASSED\n\n${JSON.stringify(data, null, 2)}</div>`;
+                } else {
+                    resultDiv.innerHTML = `<div class="error">❌ API Status Test FAILED\nStatus: ${response.status}\n\n${JSON.stringify(data, null, 2)}</div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ API Status Test FAILED\nError: ${error.message}</div>`;
+            }
+        }
+
+        async function testQuizSubmission() {
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.innerHTML = '<div class="info">Testing quiz submission...</div>';
+
+            const testData = {
+                name: 'API Test User',
+                email: 'test@apitest.com',
+                phone: '(555) 123-4567',
+                location: 'Los Angeles, CA',
+                careType: 'assisted-living',
+                budget: '3000-5000',
+                timeline: 'immediate',
+                urgency: 'immediate',
+                source: 'api-test',
+                questions: JSON.stringify({
+                    careType: 'assisted-living',
+                    budget: '3000-5000',
+                    timeline: 'immediate',
+                    location: 'Los Angeles, CA',
+                    testNote: 'This is a test submission'
+                })
+            };
+
+            try {
+                const response = await fetch('/api/quiz', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    resultDiv.innerHTML = `<div class="success">🎉 Quiz API Test PASSED\n\n✅ Record created successfully!\nRecord ID: ${data.recordId}\n\n${JSON.stringify(data, null, 2)}</div>`;
+                } else {
+                    resultDiv.innerHTML = `<div class="error">❌ Quiz API Test FAILED\nStatus: ${response.status}\n\n${JSON.stringify(data, null, 2)}</div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Quiz API Test FAILED\nError: ${error.message}</div>`;
+            }
+        }
+
+        async function testContactSubmission() {
+            const resultDiv = document.getElementById('contact-result');
+            resultDiv.innerHTML = '<div class="info">Testing contact submission...</div>';
+
+            const testData = {
+                name: 'API Test Contact',
+                email: 'contact@apitest.com',
+                phone: '(555) 987-6543',
+                message: 'This is a test contact form submission to verify the API is working.',
+                source: 'api-test'
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    resultDiv.innerHTML = `<div class="success">✅ Contact API Test PASSED\n\n${JSON.stringify(data, null, 2)}</div>`;
+                } else {
+                    resultDiv.innerHTML = `<div class="error">❌ Contact API Test FAILED\nStatus: ${response.status}\n\n${JSON.stringify(data, null, 2)}</div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Contact API Test FAILED\nError: ${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html> 
