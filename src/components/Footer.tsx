@@ -10,7 +10,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
               <img 
-                src="https://seniorlivingplacement.org/assets/SLP%20Logo%20(1)_1752736909770-A9F9-KDF.png" 
+                src="/logo.png" 
                 alt="Senior Living Placement Logo" 
                 className="h-12 w-auto mr-4"
               />

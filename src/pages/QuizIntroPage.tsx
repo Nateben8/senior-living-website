@@ -9,7 +9,7 @@ export function QuizIntroPage() {
         <div className="max-w-4xl mx-auto px-4 py-4">
           <Link href="/" className="inline-block">
             <img 
-              src="https://seniorlivingplacement.org/assets/SLP%20Logo%20(1)_1752736909770-A9F9-KDF.png" 
+              src="/logo.png" 
               alt="Senior Living Placement Logo" 
               className="h-12 w-auto"
             />

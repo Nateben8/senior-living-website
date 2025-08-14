@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'wouter'
+import { useLocation, Link } from 'wouter'
 
 // California cities and zip codes for autocomplete
 const CALIFORNIA_LOCATIONS = [
@@ -1616,6 +1616,19 @@ export function DedicatedQuizPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+      {/* Header with logo */}
+      <header className="bg-white shadow-sm border-b border-gray-200">
+        <div className="max-w-4xl mx-auto px-4 py-4">
+          <Link href="/" className="inline-block">
+            <img 
+              src="/logo.png" 
+              alt="Senior Living Placement Logo" 
+              className="h-10 w-auto"
+            />
+          </Link>
+        </div>
+      </header>
+
       {/* Progress Bar */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 py-2">
