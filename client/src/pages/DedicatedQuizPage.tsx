@@ -254,7 +254,7 @@ export function DedicatedQuizPage() {
         source: 'quiz'
       });
 
-      const response = await fetch('/api/simple-quiz', {
+      const response = await fetch('/api/working-quiz', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
