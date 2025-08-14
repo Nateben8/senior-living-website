@@ -240,7 +240,11 @@ export function DedicatedQuizPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const handleSubmit = async () => {
+  const handleSubmitNew = async () => {
+    console.log('🚀 NEW SUBMIT HANDLER CALLED');
+    console.log('Answers object:', answers);
+    console.log('Contact info:', answers.contactInfo);
+    
     try {
       console.log('📝 Quiz submission started');
       
@@ -1650,7 +1654,7 @@ We will help you find the perfect senior living option!`);
                   </div>
                   
                   <button 
-                    onClick={handleSubmit}
+                    onClick={handleSubmitNew}
                     disabled={!answers.contactInfo.firstName.trim() || !answers.contactInfo.lastName.trim() || !answers.contactInfo.email.trim() || !answers.contactInfo.phone.trim()}
                     className="w-full mt-6 bg-gradient-to-r from-primary to-purple-600 text-white py-4 rounded-xl font-bold text-lg hover:from-primary/90 hover:to-purple-600/90 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
