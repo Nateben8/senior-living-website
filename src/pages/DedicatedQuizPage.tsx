@@ -1578,14 +1578,16 @@ export function DedicatedQuizPage() {
                       const email = answers.contactInfo.email;
                       const phone = answers.contactInfo.phone;
                       
-                      // Always show success immediately
-                      alert(`Thank you ${answers.contactInfo.firstName}! 
-                      
+                                            // Always show success immediately - LATEST VERSION 2025
+                      alert(`🎉 SUCCESS! Thank you ${answers.contactInfo.firstName}!
+
 Your quiz has been submitted successfully!
 
 We will contact you at ${email} within 24 hours.
 
-For immediate assistance, call (818) 422-5232.`);
+For immediate assistance, call (818) 422-5232.
+
+✅ This is the LATEST VERSION - Jan 2025`);
                       
                       // Log the data
                       console.log('=== QUIZ SUBMISSION DATA ===');
