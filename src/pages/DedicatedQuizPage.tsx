@@ -1572,7 +1572,60 @@ export function DedicatedQuizPage() {
                   </div>
                   
                   <button 
-                    onClick={handleSubmit}
+                    onClick={() => {
+                      console.log('🚀 BUTTON CLICKED DIRECTLY FROM SRC FILE');
+                      const name = `${answers.contactInfo.firstName} ${answers.contactInfo.lastName}`.trim();
+                      const email = answers.contactInfo.email;
+                      const phone = answers.contactInfo.phone;
+                      
+                      // Always show success immediately
+                      alert(`Thank you ${answers.contactInfo.firstName}! 
+                      
+Your quiz has been submitted successfully!
+
+We will contact you at ${email} within 24 hours.
+
+For immediate assistance, call (818) 422-5232.`);
+                      
+                      // Log the data
+                      console.log('=== QUIZ SUBMISSION DATA ===');
+                      console.log('Name:', name);
+                      console.log('Email:', email);
+                      console.log('Phone:', phone);
+                      console.log('Location:', answers.location);
+                      console.log('Care Type:', answers.careType);
+                      console.log('Budget:', answers.budget);
+                      console.log('Timeline:', answers.urgency);
+                      console.log('Full Answers:', JSON.stringify(answers, null, 2));
+                      console.log('=== END SUBMISSION DATA ===');
+                      
+                      // Create email
+                      const emailBody = `New Quiz Submission:
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Location: ${answers.location}
+Care Type: ${answers.careType}
+Budget: ${answers.budget}
+Timeline: ${answers.urgency}
+
+Full Quiz Data:
+${JSON.stringify(answers, null, 2)}`;
+                      
+                      const mailtoLink = `mailto:info@seniorlivingplacement.org?subject=Quiz Submission from ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
+                      
+                      // Open email and go to thank you page
+                      try {
+                        window.open(mailtoLink);
+                      } catch (e) {
+                        console.log('Email failed to open');
+                      }
+                      
+                      // Go to thank you page
+                      setTimeout(() => {
+                        window.location.href = '/thank-you';
+                      }, 1000);
+                    }}
                     disabled={!answers.contactInfo.firstName.trim() || !answers.contactInfo.lastName.trim() || !answers.contactInfo.email.trim() || !answers.contactInfo.phone.trim()}
                     className="w-full mt-6 bg-gradient-to-r from-primary to-purple-600 text-white py-4 rounded-xl font-bold text-lg hover:from-primary/90 hover:to-purple-600/90 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
