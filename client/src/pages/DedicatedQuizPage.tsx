@@ -240,92 +240,62 @@ export function DedicatedQuizPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const handleSubmitNew = async () => {
-    console.log('🚀 NEW SUBMIT HANDLER CALLED');
-    console.log('Answers object:', answers);
-    console.log('Contact info:', answers.contactInfo);
+  const handleSubmit = async () => {
+    const name = `${answers.contactInfo.firstName} ${answers.contactInfo.lastName}`.trim();
+    const email = answers.contactInfo.email;
+    const phone = answers.contactInfo.phone;
     
     try {
-      console.log('📝 Quiz submission started');
+      // Show success message
+      alert(`🎉 Thank you ${answers.contactInfo.firstName}!
+
+Your quiz has been submitted successfully!
+
+We will contact you at ${email} within 24 hours.
+
+For immediate assistance, call (818) 422-5232.`);
       
-      const quizData = {
-        name: `${answers.contactInfo.firstName} ${answers.contactInfo.lastName}`.trim(),
-        email: answers.contactInfo.email,
-        phone: answers.contactInfo.phone || '',
-        location: answers.location || '',
-        careType: answers.careType || '',
-        budget: answers.budget || '',
-        timeline: answers.urgency || '',
-        answers: JSON.stringify(answers, null, 2)
-      };
-
-      console.log('Quiz data prepared:', quizData);
-
-      // Simple mailto fallback that always works
-      const emailBody = `
-New Quiz Submission from ${quizData.name}
-
-Contact Information:
-- Name: ${quizData.name}
-- Email: ${quizData.email}
-- Phone: ${quizData.phone}
-- Location: ${quizData.location}
-
-Quiz Responses:
-- Care Type: ${quizData.careType}
-- Budget: ${quizData.budget}
-- Timeline: ${quizData.timeline}
+      // Create email body for manual processing
+      const emailBody = `New Quiz Submission:
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Location: ${answers.location}
+Care Type: ${answers.careType}
+Budget: ${answers.budget}
+Timeline: ${answers.urgency}
 
 Full Quiz Data:
-${quizData.answers}
-
-Please follow up with this lead as soon as possible.
-      `.trim();
-
-      // Always show success and provide contact info
-      alert(`Thank you ${answers.contactInfo.firstName}! Your quiz has been submitted successfully. 
-
-We will contact you at ${answers.contactInfo.email} within 24 hours.
-
-For immediate assistance, call us at (818) 422-5232.`);
-
-      // Create mailto link as backup
-      const mailtoLink = `mailto:info@seniorlivingplacement.org?subject=Quiz Submission from ${encodeURIComponent(quizData.name)}&body=${encodeURIComponent(emailBody)}`;
+${JSON.stringify(answers, null, 2)}`;
       
-      // Try to send the email automatically (opens user's email client)
+      // Log for manual processing
+      console.log('=== QUIZ SUBMISSION ===');
+      console.log('Name:', name);
+      console.log('Email:', email);
+      console.log('Phone:', phone);
+      console.log('Full Data:', JSON.stringify(answers, null, 2));
+      console.log('=== END SUBMISSION ===');
+      
+      // Try to open email client
+      const mailtoLink = `mailto:info@seniorlivingplacement.org?subject=Quiz Submission from ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
       try {
-        window.location.href = mailtoLink;
-        setTimeout(() => {
-          setLocation('/thank-you');
-        }, 1000);
-      } catch (mailError) {
-        console.log('Mailto failed, but continuing to thank you page');
-        setLocation('/thank-you');
+        window.open(mailtoLink);
+      } catch (e) {
+        console.log('Email client not available');
       }
-
-      // Log the data for manual processing
-      console.log('=== QUIZ SUBMISSION FOR MANUAL PROCESSING ===');
-      console.log('Name:', quizData.name);
-      console.log('Email:', quizData.email);
-      console.log('Phone:', quizData.phone);
-      console.log('Location:', quizData.location);
-      console.log('Care Type:', quizData.careType);
-      console.log('Budget:', quizData.budget);
-      console.log('Timeline:', quizData.timeline);
-      console.log('Full Data:', quizData.answers);
-      console.log('=== END QUIZ SUBMISSION ===');
-
+      
+      // Navigate to thank you page
+      setTimeout(() => {
+        setLocation('/thank-you');
+      }, 1000);
+      
     } catch (error) {
       console.error('Quiz submission error:', error);
-      
-      // Even if everything fails, be helpful
       alert(`Thank you ${answers.contactInfo.firstName}! 
 
 There was a technical issue, but we have your information. 
 
-Please call us directly at (818) 422-5232 or email info@seniorlivingplacement.org 
-
-We will help you find the perfect senior living option!`);
+Please call us directly at (818) 422-5232 or email info@seniorlivingplacement.org`);
       
       setLocation('/thank-you');
     }
@@ -1654,62 +1624,7 @@ We will help you find the perfect senior living option!`);
                   </div>
                   
                   <button 
-                    onClick={() => {
-                      console.log('🚀 BUTTON CLICKED DIRECTLY');
-                      const name = `${answers.contactInfo.firstName} ${answers.contactInfo.lastName}`.trim();
-                      const email = answers.contactInfo.email;
-                      const phone = answers.contactInfo.phone;
-                      
-                                            // Always show success immediately - LATEST VERSION 2025
-                      alert(`🎉 SUCCESS! Thank you ${answers.contactInfo.firstName}!
-
-Your quiz has been submitted successfully!
-
-We will contact you at ${email} within 24 hours.
-
-For immediate assistance, call (818) 422-5232.
-
-✅ This is the LATEST VERSION - Jan 2025`);
-                      
-                      // Log the data
-                      console.log('=== QUIZ SUBMISSION DATA ===');
-                      console.log('Name:', name);
-                      console.log('Email:', email);
-                      console.log('Phone:', phone);
-                      console.log('Location:', answers.location);
-                      console.log('Care Type:', answers.careType);
-                      console.log('Budget:', answers.budget);
-                      console.log('Timeline:', answers.urgency);
-                      console.log('Full Answers:', JSON.stringify(answers, null, 2));
-                      console.log('=== END SUBMISSION DATA ===');
-                      
-                      // Create email
-                      const emailBody = `New Quiz Submission:
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Location: ${answers.location}
-Care Type: ${answers.careType}
-Budget: ${answers.budget}
-Timeline: ${answers.urgency}
-
-Full Quiz Data:
-${JSON.stringify(answers, null, 2)}`;
-                      
-                      const mailtoLink = `mailto:info@seniorlivingplacement.org?subject=Quiz Submission from ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
-                      
-                      // Open email and go to thank you page
-                      try {
-                        window.open(mailtoLink);
-                      } catch (e) {
-                        console.log('Email failed to open');
-                      }
-                      
-                      // Go to thank you page
-                      setTimeout(() => {
-                        window.location.href = '/thank-you';
-                      }, 1000);
-                    }}
+                    onClick={handleSubmit}
                     disabled={!answers.contactInfo.firstName.trim() || !answers.contactInfo.lastName.trim() || !answers.contactInfo.email.trim() || !answers.contactInfo.phone.trim()}
                     className="w-full mt-6 bg-gradient-to-r from-primary to-purple-600 text-white py-4 rounded-xl font-bold text-lg hover:from-primary/90 hover:to-purple-600/90 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
