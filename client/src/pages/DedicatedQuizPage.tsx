@@ -246,6 +246,31 @@ export function DedicatedQuizPage() {
     const phone = answers.contactInfo.phone;
     
     try {
+      // Attempt API submission first
+      const response = await fetch('/api/quiz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          location: answers.location,
+          careType: answers.careType,
+          budget: answers.budget,
+          // Map timeline to urgency if separate timeline not present
+          timeline: (answers as any).timeline ?? answers.urgency,
+          urgency: answers.urgency,
+          source: 'dedicated-quiz-page',
+          questions: JSON.stringify(answers)
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Quiz API returned ${response.status}`);
+      }
+
       // Show success message
       alert(`🎉 Thank you ${answers.contactInfo.firstName}!
 
