@@ -1,1 +1,1 @@
-module.exports = require('./quiz.cjs'); 
+export { default as default } from './quiz.cjs'; 

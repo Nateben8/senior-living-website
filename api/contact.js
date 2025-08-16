@@ -1,1 +1,1 @@
-module.exports = require('./contact.cjs'); 
+export { default as default } from './contact.cjs'; 
