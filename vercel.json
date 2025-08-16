@@ -4,7 +4,7 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "functions": {
-    "pages/api/**/*.js": {
+    "api/**/*.js": {
       "runtime": "@vercel/node@3.0.7"
     }
   }
