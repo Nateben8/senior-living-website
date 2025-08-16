@@ -1,29 +1,6 @@
-const CACHE_NAME = 'senior-living-placement-v1'
+const CACHE_NAME = 'senior-living-placement-v3'
 const urlsToCache = [
   '/',
-  '/about',
-  '/contact',
-  '/care-types',
-  '/how-it-works',
-  '/payment-options',
-  '/reviews',
-  '/faq',
-  '/facilities',
-  '/caregiver-resources',
-  '/care-decisions',
-  '/caregiver-tips',
-  '/quiz-intro',
-  '/quiz',
-  '/blog',
-  '/blog/signs-elderly-parent-needs-help',
-  '/blog/assisted-living-vs-memory-care-california',
-  '/blog/senior-living-costs-california-2024',
-  '/blog/memory-care-specialists-california',
-  '/blog/senior-living-transition-guide',
-  '/blog/california-senior-living-facilities-guide',
-  '/blog/caregiver-burnout-prevention',
-  '/assets/index-DorcbkHK.css',
-  '/assets/index-DxaJV987.js',
   '/favicon.svg'
 ]
 
@@ -40,13 +17,26 @@ self.addEventListener('install', event => {
 
 // Fetch event
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Return cached version or fetch from network
-        return response || fetch(event.request)
-      }
+  const url = new URL(event.request.url)
+
+  // Always bypass cache for API requests
+  if (url.pathname.startsWith('/api/')) {
+    return
+  }
+
+  // For navigation requests (HTML pages), use network-first to avoid stale app shell
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match('/'))
     )
+    return
+  }
+
+  // Assets and other requests: cache-first fallback
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request)
+    })
   )
 })
 
