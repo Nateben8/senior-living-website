@@ -244,10 +244,11 @@ export function DedicatedQuizPage() {
     const name = `${answers.contactInfo.firstName} ${answers.contactInfo.lastName}`.trim();
     const email = answers.contactInfo.email;
     const phone = answers.contactInfo.phone;
+    const API_BASE_URL = (import.meta as any).env?.VITE_API_BASE_URL || '';
     
     try {
       // Attempt API submission first
-      const response = await fetch('/api/quiz', {
+      const response = await fetch(`${API_BASE_URL}/api/quiz`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -316,11 +317,14 @@ ${JSON.stringify(answers, null, 2)}`;
       
     } catch (error) {
       console.error('Quiz submission error:', error);
-      alert(`Thank you ${answers.contactInfo.firstName}! 
-
-There was a technical issue, but we have your information. 
-
-Please call us directly at (818) 422-5232 or email info@seniorlivingplacement.org`);
+      const fallbackEmailBody = `New Quiz Submission (Fallback):\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nLocation: ${answers.location}\nCare Type: ${answers.careType}\nBudget: ${answers.budget}\nTimeline: ${(answers as any).timeline ?? answers.urgency}\nUrgency: ${answers.urgency}\n\nFull Quiz Data:\n${JSON.stringify(answers, null, 2)}`;
+      try {
+        const mailtoLink = `mailto:info@seniorlivingplacement.org?subject=Quiz Submission from ${encodeURIComponent(name)}&body=${encodeURIComponent(fallbackEmailBody)}`;
+        window.open(mailtoLink);
+      } catch (e) {
+        console.log('Email client not available');
+      }
+      alert(`Thank you ${answers.contactInfo.firstName}!\n\nThere was a technical issue submitting online. We've opened your email client with the details so nothing is lost.\n\nFor immediate help, call (818) 422-5232 or email info@seniorlivingplacement.org`);
       
       setLocation('/thank-you');
     }
