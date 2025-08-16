@@ -1,8 +1,5 @@
-import 'dotenv/config';
-
-export const config = {
-	runtime: 'nodejs18.x'
-};
+import AirtablePkg from 'airtable';
+const Airtable = AirtablePkg.default || AirtablePkg;
 
 export default async function handler(req, res) {
 	// Enable CORS for all requests
@@ -36,8 +33,7 @@ export default async function handler(req, res) {
 			});
 		}
 
-		// Dynamic import for CJS interop
-		const { default: Airtable } = await import('airtable');
+		// Initialize Airtable
 		const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
 			process.env.AIRTABLE_BASE_ID,
 		);
