@@ -286,51 +286,15 @@ We will contact you at ${email} within 24 hours.
 
 For immediate assistance, call (818) 422-5232.`);
       
-      // Create email body for manual processing
-      const emailBody = `New Quiz Submission:
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Location: ${answers.location}
-Care Type: ${answers.careType}
-Budget: ${answers.budget}
-Timeline: ${answers.urgency}
-
-Full Quiz Data:
-${JSON.stringify(answers, null, 2)}`;
-      
-      // Log for manual processing
-      console.log('=== QUIZ SUBMISSION ===');
-      console.log('Name:', name);
-      console.log('Email:', email);
-      console.log('Phone:', phone);
-      console.log('Full Data:', JSON.stringify(answers, null, 2));
-      console.log('=== END SUBMISSION ===');
-      
-      // Try to open email client
-      const mailtoLink = `mailto:info@seniorlivingplacement.org?subject=Quiz Submission from ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
-      try {
-        window.open(mailtoLink);
-      } catch (e) {
-        console.log('Email client not available');
-      }
-      
       // Navigate to thank you page
       setTimeout(() => {
         setLocation('/thank-you');
-      }, 1000);
+      }, 400);
       
     } catch (error) {
       console.error('Quiz submission error:', error);
-      const fallbackEmailBody = `New Quiz Submission (Fallback):\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nLocation: ${answers.location}\nCare Type: ${answers.careType}\nBudget: ${answers.budget}\nTimeline: ${(answers as any).timeline ?? answers.urgency}\nUrgency: ${answers.urgency}\n\nFull Quiz Data:\n${JSON.stringify(answers, null, 2)}`;
-      try {
-        const mailtoLink = `mailto:info@seniorlivingplacement.org?subject=Quiz Submission from ${encodeURIComponent(name)}&body=${encodeURIComponent(fallbackEmailBody)}`;
-        window.open(mailtoLink);
-      } catch (e) {
-        console.log('Email client not available');
-      }
-      alert(`Thank you ${answers.contactInfo.firstName}!\n\nThere was a technical issue submitting online. We've opened your email client with the details so nothing is lost.\n\nFor immediate help, call (818) 422-5232 or email info@seniorlivingplacement.org`);
-      
+      // Do NOT auto-open email client; just show clear fallback with contact info
+      alert(`Thank you ${answers.contactInfo.firstName}!\n\nWe couldn't submit online right now. Please call (818) 422-5232 or email info@seniorlivingplacement.org and we'll assist you immediately.`);
       setLocation('/thank-you');
     }
   }
