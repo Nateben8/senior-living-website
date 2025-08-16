@@ -1,4 +1,4 @@
-import Airtable from 'airtable';
+import 'dotenv/config';
 
 export default async function handler(req, res) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,6 +19,7 @@ export default async function handler(req, res) {
 			return res.status(500).json({ success: false, error: 'Server configuration error' });
 		}
 
+		const { default: Airtable } = await import('airtable');
 		const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
 			process.env.AIRTABLE_BASE_ID,
 		);
