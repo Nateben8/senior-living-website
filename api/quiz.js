@@ -1,58 +1,26 @@
-import AirtablePkg from 'airtable';
-const Airtable = AirtablePkg.default || AirtablePkg;
-
 export default async function handler(req, res) {
 	// Enable CORS for all requests
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
 	res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-	// Handle preflight requests
 	if (req.method === 'OPTIONS') {
 		res.status(200).end();
 		return;
 	}
 
-	// Only allow POST method
 	if (req.method !== 'POST') {
-		return res.status(405).json({
-			success: false,
-			error: 'Method not allowed',
-			method: req.method,
-		});
+		return res.status(405).json({ success: false, error: 'Method not allowed', method: req.method });
 	}
 
 	try {
-		// Check env vars
-		if (!process.env.AIRTABLE_API_KEY || !process.env.AIRTABLE_BASE_ID) {
-			return res.status(500).json({
-				success: false,
-				error: 'Server configuration error',
-				hasKey: !!process.env.AIRTABLE_API_KEY,
-				hasBase: !!process.env.AIRTABLE_BASE_ID,
-			});
+		const apiKey = process.env.AIRTABLE_API_KEY;
+		const baseId = process.env.AIRTABLE_BASE_ID;
+		if (!apiKey || !baseId) {
+			return res.status(500).json({ success: false, error: 'Server configuration error' });
 		}
 
-		// Initialize Airtable
-		const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
-			process.env.AIRTABLE_BASE_ID,
-		);
-
-		// Extract request data
-		const {
-			name,
-			email,
-			phone,
-			location,
-			careType,
-			budget,
-			timeline,
-			urgency,
-			source,
-			questions,
-		} = req.body || {};
-
-		// Validate required fields
+		const { name, email, phone, location, careType, budget, timeline, urgency, source, questions } = req.body || {};
 		if (!name || !String(name).trim()) {
 			return res.status(400).json({ success: false, error: 'Name is required' });
 		}
@@ -60,7 +28,6 @@ export default async function handler(req, res) {
 			return res.status(400).json({ success: false, error: 'Email is required' });
 		}
 
-		// Format questions
 		let formattedQuestions = '';
 		if (questions) {
 			try {
@@ -68,9 +35,7 @@ export default async function handler(req, res) {
 				formattedQuestions = Object.entries(parsed)
 					.filter(([key, value]) => value && key !== 'contactInfo')
 					.map(([key, value]) => {
-						const formattedKey = key
-							.replace(/([A-Z])/g, ' $1')
-							.replace(/^./, (str) => str.toUpperCase());
+						const formattedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, (s) => s.toUpperCase());
 						if (Array.isArray(value)) return `${formattedKey}: ${value.join(', ')}`;
 						if (typeof value === 'object') return `${formattedKey}: ${JSON.stringify(value)}`;
 						return `${formattedKey}: ${value}`;
@@ -81,7 +46,6 @@ export default async function handler(req, res) {
 			}
 		}
 
-		// Prepare Airtable record
 		const fields = {
 			Name: String(name).trim(),
 			Email: String(email).trim(),
@@ -92,22 +56,37 @@ export default async function handler(req, res) {
 			'Questions and Answers': formattedQuestions,
 			'IP Address': req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || req.connection?.remoteAddress || 'unknown',
 			'User Agent': req.headers['user-agent'] || 'unknown',
+			Source: source || 'quiz',
+			'Care Type': careType || '',
+			Budget: budget || '',
+			Timeline: timeline || urgency || '',
+			Urgency: urgency || '',
 		};
 
-		const record = await base('Quiz Submissions').create([{ fields }]);
+		const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent('Quiz Submissions')}`;
+		const atRes = await fetch(url, {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${apiKey}`,
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ records: [{ fields }] }),
+		});
+
+		if (!atRes.ok) {
+			const errText = await atRes.text().catch(() => '');
+			return res.status(500).json({ success: false, error: 'Airtable request failed', details: errText });
+		}
+		const data = await atRes.json();
+		const recordId = data?.records?.[0]?.id || null;
 
 		return res.status(201).json({
 			success: true,
 			message: 'Quiz submitted successfully',
-			recordId: record[0].id,
+			recordId,
 			timestamp: new Date().toISOString(),
 		});
 	} catch (error) {
-		return res.status(500).json({
-			success: false,
-			error: 'Quiz submission failed',
-			message: error?.message || 'Unknown error',
-			timestamp: new Date().toISOString(),
-		});
+		return res.status(500).json({ success: false, error: 'Quiz submission failed', message: error?.message || 'Unknown error' });
 	}
 } 
