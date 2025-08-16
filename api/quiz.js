@@ -1,5 +1,9 @@
 import 'dotenv/config';
 
+export const config = {
+	runtime: 'nodejs18.x'
+};
+
 export default async function handler(req, res) {
 	// Enable CORS for all requests
 	res.setHeader('Access-Control-Allow-Origin', '*');
