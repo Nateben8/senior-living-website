@@ -244,11 +244,13 @@ export function DedicatedQuizPage() {
     const name = `${answers.contactInfo.firstName} ${answers.contactInfo.lastName}`.trim();
     const email = answers.contactInfo.email;
     const phone = answers.contactInfo.phone;
-    const API_BASE_URL = (import.meta as any).env?.VITE_API_BASE_URL || '';
+    const envBase = (import.meta as any).env?.VITE_API_BASE_URL || '';
+    const isLocalHost = typeof window !== 'undefined' && /^(localhost|127\.0\.0\.1)$/i.test(window.location.hostname);
+    const apiBase = !isLocalHost && envBase.includes('localhost') ? '' : envBase;
     
     try {
       // Attempt API submission first
-      const response = await fetch(`${API_BASE_URL}/api/quiz`, {
+      const response = await fetch(`${apiBase}/api/quiz`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -268,8 +270,11 @@ export function DedicatedQuizPage() {
         })
       });
 
-      if (!response.ok) {
-        throw new Error(`Quiz API returned ${response.status}`);
+      const contentType = response.headers.get('content-type') || '';
+      const isJson = contentType.includes('application/json');
+      const data = isJson ? await response.json().catch(() => ({} as any)) : null;
+      if (!response.ok || !isJson || (data && data.success === false)) {
+        throw new Error(`Quiz API error: status=${response.status}`);
       }
 
       // Show success message
